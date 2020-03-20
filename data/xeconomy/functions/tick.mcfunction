@@ -1,6 +1,13 @@
+execute as @e[tag=xecshop,scores={ownerid=0}] run kill @e[tag=xlock]
+execute as @e[tag=xecshop,scores={ownerid=0}] run setblock ^ ^ ^-1 air replace
+execute as @e[tag=xecshop,scores={ownerid=0}] run kill @s
+execute as @a[scores={xid=0},tag=xidd] at @s run tag @s remove xidd
 scoreboard players set zero xcurrent 0
 scoreboard players enable @a deposit
 execute as @e[tag=xecshop] at @s if block ^ ^-1 ^-1 hopper run setblock ^ ^-1 ^-1 air destroy
+execute as @e[tag=xecadmin] at @s run scoreboard players set @s shopmoney 99999999
+execute as @e[tag=xecadmin,tag=sellx] at @s run replaceitem block ^ ^ ^-1 container.10 air
+
 execute as @e[tag=xecshop] at @s run kill @e[type=hopper_minecart,limit=1,distance=..2]
 execute as @a[scores={deposit=1..}] at @s unless score @s balance >= @s deposit run tellraw @s {"text":"You can't afford that!","color":"red"}
 execute as @a[scores={deposit=1..}] at @s unless score @s balance >= @s deposit run scoreboard players reset @s deposit
@@ -91,6 +98,8 @@ execute as @p[tag=!xidd,limit=1] at @s run scoreboard players operation @s xid +
 execute as @p[tag=!xidd,limit=1] at @s run scoreboard players add static xid 1
 execute as @p[tag=!xidd,limit=1] at @s run tag @s add xidd
 execute as @e[type=item_frame,tag=!xecshop] at @s if block ^ ^ ^-1 minecraft:chest if data entity @s {Item:{id:"minecraft:oak_sign"}} run tag @s add xecsetup
+execute as @e[type=item_frame,tag=!xecshop] at @s if block ^ ^ ^-1 minecraft:chest if data entity @s {Item:{id:"minecraft:debug_stick"}} run tag @s add xecadmin
+execute as @e[type=item_frame,tag=!xecshop] at @s if block ^ ^ ^-1 minecraft:chest if data entity @s {Item:{id:"minecraft:debug_stick"}} run tag @s add xecsetup
 execute as @e[tag=xecsetup] at @s run data merge entity @s {Item:{id:""},Invulnerable:1b,Silent:1b,Fixed:1b}
 execute as @e[tag=xecsetup] at @s run tag @s add xecshop
 execute as @e[tag=xecsetup] at @s run tag @s add buyx
@@ -495,7 +504,7 @@ execute as @e[tag=xtrigger,tag=sellx,tag=check3,scores={checksum1=..2,xinsert=1.
 
 execute as @e[tag=xtrigger,tag=buyx,tag=xremoveevent] at @s run tellraw @p[tag=xshopper] ["",{"text":"$","color":"green"},{"score":{"name":"@s","objective":"shopprice"},"color":"green"},{"text":" has been removed from your account.","color":"green"}]
 execute as @e[tag=xtrigger,tag=buyx,tag=xremoveevent] at @s run scoreboard players operation @p[tag=xshopper] balance -= @s shopprice
-execute as @e[tag=xtrigger,tag=buyx,tag=xremoveevent] at @s run scoreboard players operation @s xbuyremove = @s shopcount
+execute as @e[tag=xtrigger,tag=buyx,tag=xremoveevent,tag=!xecadmin] at @s run scoreboard players operation @s xbuyremove = @s shopcount
 execute as @e[tag=xtrigger,tag=buyx,tag=xremoveevent] at @s run scoreboard players operation @s xbshopearn += @s shopprice
 execute as @e[tag=xtrigger,tag=buyx,tag=xremoveevent] at @s run tag @s remove xremoveevent
 execute as @e[tag=xtrigger] at @s run tag @a remove xshopper
