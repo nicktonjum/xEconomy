@@ -8,12 +8,15 @@ scoreboard objectives add b2 dummy
 scoreboard objectives add xshift minecraft.custom:minecraft.sneak_time
 scoreboard objectives add b3 dummy
 scoreboard objectives add b4 dummy
+scoreboard objectives add xclearlock dummy
+scoreboard objectives add xclearl1 dummy
 scoreboard objectives add b5 dummy
 scoreboard objectives add b6 dummy
 scoreboard objectives add b7 dummy
 scoreboard objectives add b8 dummy
 scoreboard objectives add b9 dummy
 scoreboard objectives add b10 dummy
+scoreboard objectives add xgui dummy
 scoreboard objectives add xbshopearn dummy
 scoreboard objectives add xmisc dummy
 scoreboard objectives add xsshopearn dummy
