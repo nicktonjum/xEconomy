@@ -7,7 +7,7 @@ scoreboard players enable @a deposit
 execute as @e[tag=xecshop] at @s if block ^ ^-1 ^-1 hopper run setblock ^ ^-1 ^-1 air destroy
 execute as @e[tag=xecadmin] at @s run scoreboard players set @s shopmoney 99999999
 execute as @e[tag=xecadmin,tag=sellx] at @s run replaceitem block ^ ^ ^-1 container.10 air
-
+execute as @a at @s store result score @s xgui run data get entity @s recipeBook.isGuiOpen
 execute as @e[tag=xecshop] at @s run kill @e[type=hopper_minecart,limit=1,distance=..2]
 execute as @a[scores={deposit=1..}] at @s unless score @s balance >= @s deposit run tellraw @s {"text":"You can't afford that!","color":"red"}
 execute as @a[scores={deposit=1..}] at @s unless score @s balance >= @s deposit run scoreboard players reset @s deposit
@@ -133,16 +133,16 @@ execute as @e[tag=xecshop,tag=locked] at @s unless entity @e[tag=xlock,limit=1,s
 
 scoreboard players reset @a xshift
 
-execute as @a at @s store result score @s b1 run clear @s lime_wool{display:{Name:"{\"text\":\"+$1\",\"color\":\"green\"}"}}
-execute as @a at @s store result score @s b2 run clear @s lime_wool{display:{Name:"{\"text\":\"+$10\",\"color\":\"green\"}"}}
-execute as @a at @s store result score @s b3 run clear @s lime_wool{display:{Name:"{\"text\":\"+$100\",\"color\":\"green\"}"}}
-execute as @a at @s store result score @s b4 run clear @s red_wool{display:{Name:"{\"text\":\"-$1\",\"color\":\"red\"}"}}
-execute as @a at @s store result score @s b5 run clear @s red_wool{display:{Name:"{\"text\":\"-$10\",\"color\":\"red\"}"}}
-execute as @a at @s store result score @s b6 run clear @s red_wool{display:{Name:"{\"text\":\"-$100\",\"color\":\"red\"}"}}
-execute as @a at @s store result score @s b7 run clear @s light_blue_wool{display:{Name:"{\"text\":\"Buy Shop\",\"color\":\"aqua\"}"}}
-execute as @a at @s store result score @s b8 run clear @s yellow_wool{display:{Name:"{\"text\":\"Sell Shop\",\"color\":\"yellow\"}"}}
-execute as @a at @s store success score @s b9 run clear @s gray_wool{display:{Name:"{\"text\":\"Item Count\",\"color\":\"white\"}"}}
-execute as @a at @s store result score @s b10 run clear @s barrier{display:{Name:"{\"text\":\"Destroy Shop\",\"color\":\"red\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b1 run clear @s lime_wool{display:{Name:"{\"text\":\"+$1\",\"color\":\"green\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b2 run clear @s lime_wool{display:{Name:"{\"text\":\"+$10\",\"color\":\"green\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b3 run clear @s lime_wool{display:{Name:"{\"text\":\"+$100\",\"color\":\"green\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b4 run clear @s red_wool{display:{Name:"{\"text\":\"-$1\",\"color\":\"red\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b5 run clear @s red_wool{display:{Name:"{\"text\":\"-$10\",\"color\":\"red\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b6 run clear @s red_wool{display:{Name:"{\"text\":\"-$100\",\"color\":\"red\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b7 run clear @s light_blue_wool{display:{Name:"{\"text\":\"Buy Shop\",\"color\":\"aqua\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b8 run clear @s yellow_wool{display:{Name:"{\"text\":\"Sell Shop\",\"color\":\"yellow\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store success score @s b9 run clear @s gray_wool{display:{Name:"{\"text\":\"Item Count\",\"color\":\"white\"}"}}
+execute as @a at @s if entity @e[tag=xecshop,distance=..6] store result score @s b10 run clear @s barrier{display:{Name:"{\"text\":\"Destroy Shop\",\"color\":\"red\"}"}}
 execute as @e[tag=xecshop,tag=!ignorecommands] at @s run scoreboard players set @s b1 1
 execute as @e[tag=xecshop,tag=!ignorecommands] at @s run scoreboard players set @s b2 1
 execute as @e[tag=xecshop,tag=!ignorecommands] at @s run scoreboard players set @s b3 1
