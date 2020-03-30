@@ -1,3 +1,5 @@
+execute if score plmsg xgeneral matches 0 run schedule function xeconomy:xplugin 1s
+execute if score plmsg xgeneral matches 0 run scoreboard players set plmsg xgeneral 1
 execute as @e[tag=xecshop,scores={ownerid=0}] run kill @e[tag=xlock]
 execute as @e[tag=xecshop,scores={ownerid=0}] run setblock ^ ^ ^-1 air replace
 execute as @e[tag=xecshop,scores={ownerid=0}] run kill @s

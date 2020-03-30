@@ -16,6 +16,7 @@ scoreboard objectives add b7 dummy
 scoreboard objectives add b8 dummy
 scoreboard objectives add b9 dummy
 scoreboard objectives add b10 dummy
+scoreboard objectives add xgeneral dummy
 scoreboard objectives add xgui dummy
 scoreboard objectives add xbshopearn dummy
 scoreboard objectives add xmisc dummy
@@ -47,4 +48,4 @@ scoreboard objectives add xcurrent dummy
 scoreboard objectives add checkcount dummy
 scoreboard objectives add availslot dummy
 scoreboard players set zero xcurrent 0
-tellraw @a {"text":"xEconomy 1.16+ Successfully Loaded!","color":"green"}
+scoreboard players set plmsg xgeneral 0
