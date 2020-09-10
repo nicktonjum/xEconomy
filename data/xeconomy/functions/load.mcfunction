@@ -1,6 +1,14 @@
+
+scoreboard objectives add xsettings dummy
+execute unless score enableplaytime xsettings matches -9999..9999 run scoreboard players set enableplaytime xsettings 0
+execute unless score ptrequirement xsettings matches 0..999999999 run scoreboard players set ptrequirement xsettings 15
+execute unless score ptpayout xsettings matches 0..999999999 run scoreboard players set ptpayout xsettings 20
+scoreboard objectives add xptrecords dummy
 scoreboard objectives add balance dummy {"text":"Balance","color":"green"}
 scoreboard objectives add bal trigger
+scoreboard objectives add color dummy
 scoreboard objectives add deposit trigger
+execute unless score listid xsettings matches -9999..9999 run scoreboard players set listid xsettings 1
 scoreboard objectives add xid dummy
 execute unless score static xid matches -99999999..99999999 run scoreboard players set static xid 1000
 scoreboard objectives add b1 dummy
@@ -49,3 +57,4 @@ scoreboard objectives add checkcount dummy
 scoreboard objectives add availslot dummy
 scoreboard players set zero xcurrent 0
 scoreboard players set plmsg xgeneral 0
+scoreboard players set raw xptrecords 0

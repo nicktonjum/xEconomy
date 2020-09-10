@@ -1,4 +1,5 @@
-tellraw @a [{"text":"[xEconomy]","color":"green"},{"text":" Successfully Loaded!","color":"white"}]
+tellraw @a [{"text":"[xEconomy]","color":"green"},{"text":" Running version 200909","color":"white"}]
 scoreboard players set xpl xgeneral 0
 execute store result score xpl xgeneral run kill @e[tag=xplugin]
 tellraw @a ["",{"text":"[xEconomy]","color":"green"},{"text":" Found "},{"score":{"name":"xpl","objective":"xgeneral"}},{"text":" plugin(s)."}]
+execute as @a at @s run tellraw @s ["",{"text":"Hello ","color":"#EC8FFF"},{"selector":"@s","italic":true,"color":"#EC8FFF"},{"text":"! My name is Nick and I am currently a college student going into Software Development. I'm working hard to keep xEconomy updated to the latest version of minecraft. On the side of my schoolwork and mod making, I am trying to start up a youtube channel. My content is based on coding projects & datapacks, comedy, and even a bit of gaming. Please consider subscribing to Nicky T on youtube by clicking ","color":"#EC8FFF"},{"text":"[HERE]","color":"aqua","clickEvent":{"action":"open_url","value":"https://www.youtube.com/c/Tonjum"},"hoverEvent":{"action":"show_text","contents":{"text":"Nicky T on YouTube","color":"red"}}},{"text":". Thank you very much for subbing and using this pack!","color":"#EC8FFF"}]

@@ -1,0 +1,9 @@
+scoreboard players set @s b1 1
+scoreboard players set @s b2 1
+scoreboard players set @s b3 1
+scoreboard players set @s b4 1
+scoreboard players set @s b5 1
+scoreboard players set @s b6 1
+scoreboard players set @s b7 1
+scoreboard players set @s b8 1
+scoreboard players set @s b10 1
